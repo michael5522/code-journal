@@ -1,0 +1,49 @@
+* {
+  font-family: "Proza Libre", sans-serif;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 0;
+  font-size: 2.25rem;
+  color: white;
+  background-color: #562b81;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  color: white;
+  background-color: #562b81;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.placeholder {
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid lightgray;
+  line-height: 1.75rem;
+  width: 100%;
+}
