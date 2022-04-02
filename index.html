@@ -16,12 +16,14 @@
 </head>
 <body>
   <header>
-    <h1>Code Journal</h1>
+    <div class="header-container">
+      <h1>Code Journal</h1>
+    </div>
   </header>
 
 
   <div class="container" data-view="entry-form">
-    <form>
+    <form id="form">
 
       <div class="row">
         <h2 class="heading">New Entry</h2>
@@ -55,7 +57,7 @@
           </label>
           <textarea class="placeholder" required name="notes" rows="4" type="text" id="notes"></textarea>
           <div class="button-container">
-            <button type="submit">SAVE</button>
+            <button type="submit" id="submit">SAVE</button>
           </div>
 
 
