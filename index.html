@@ -16,9 +16,58 @@
 </head>
 <body>
   <header>
+    <div class="header-container">
+      <h1>Code Journal</h1>
+    </div>
   </header>
-  <main>
-  </main>
+
+
+  <div class="container" data-view="entry-form">
+    <form id="form">
+
+      <div class="row">
+        <h2 class="heading">New Entry</h2>
+      </div>
+
+      <div class="row">
+
+        <div class="column-half flex-column">
+          <div class="imagePlaceHolder">
+            <img src="images/placeholder-image-square.jpg" alt="blank" id="img">
+          </div>
+        </div>
+
+        <div class="column-half flex-column">
+          <label for="title">
+            <h3>Title</h3>
+          </label>
+          <input class="placeholder" required name="title" type="text" id="title">
+          <label for="photoURL">
+            <h3>Photo URL</h3>
+          </label>
+          <input class="placeholder" required name="photoURL" type="url" id="photoURL">
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="flex-column column-full">
+          <label for="notes">
+            <h3>Notes</h3>
+          </label>
+          <textarea class="placeholder" required name="notes" rows="4" type="text" id="notes"></textarea>
+          <div class="button-container">
+            <button type="submit" id="submit">SAVE</button>
+          </div>
+
+
+        </div>
+      </div>
+
+    </form>
+  </div>
+  </div>
+
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
