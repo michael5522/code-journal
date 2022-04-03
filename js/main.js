@@ -15,7 +15,7 @@ function handleSubmit(event) {
     id: data.nextEntryId
   };
   data.nextEntryId++;
-  data.entries.push(obj);
+  data.entries.unshift(obj);
   formLocation.reset();
 }
 
