@@ -23,112 +23,118 @@
   </header>
 
 
-  <div class="container" data-view="entry-form">
-    <form id="form">
+  <div class="container">
+    <div class="entry-form">
+      <form id="form">
 
-      <div class="row">
-        <h2 class="heading">New Entry</h2>
-      </div>
-
-      <div class="row">
-        <div class="column-half flex-column">
-          <div class="imagePlaceHolder">
-            <img src="images/placeholder-image-square.jpg" alt="blank" id="img">
-          </div>
+        <div class="row">
+          <h2 class="heading">New Entry</h2>
         </div>
 
-        <div class="column-half flex-column">
-          <label for="title">
-            <h3>Title</h3>
-          </label>
-          <input class="placeholder" required name="title" type="text" id="title">
-          <label for="photoURL">
-            <h3>Photo URL</h3>
-          </label>
-          <input class="placeholder" required name="photoURL" type="url" id="photoURL">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="flex-column column-full">
-          <label for="notes">
-            <h3>Notes</h3>
-          </label>
-          <textarea class="placeholder" required name="notes" rows="4" type="text" id="notes"></textarea>
-          <div class="button-container">
-            <button type="submit" id="submit">SAVE</button>
-          </div>
-        </div>
-      </div>
-
-    </form>
-  </div>
-  <!-- ENTRIES  -->
-  <!-- ENTRIES -->
-  <div class="container" data-view="entries">
-
-    <div class="row-entries">
-      <h2 class="heading">Entries</h2>
-      <button class="button-new">New</button>
-    </div>
-    <ul class="no-bullets">
-      <li>
-        <!-- first pokemon  -->
         <div class="row">
           <div class="column-half flex-column">
             <div class="imagePlaceHolder">
-              <img src="https://upload.wikimedia.org/wikipedia/en/9/92/Pok%C3%A9mon_episode_1_screenshot.png" alt="blank"
-                  id="img">
+              <img src="images/placeholder-image-square.jpg" alt="blank" id="img">
             </div>
           </div>
 
           <div class="column-half flex-column">
-            <h3>Pikachu</h3>
-            <p>Pikachu (ピカチュウ, Pikachuu) is an Electric-type Pokémon which was introduced in Generation I. Pikachu is renowned
-                for
-                being the most well-known and recognizable Pokémon.
-              <br>
-              <br>
-              Over the years, Pikachu has become so popular that it serves as the
-                Pokémon franchise mascot.
-            </p>
+            <label for="title">
+              <h3>Title</h3>
+            </label>
+            <input class="placeholder" required name="title" type="text" id="title">
+            <label for="photoURL">
+              <h3>Photo URL</h3>
+            </label>
+            <input class="placeholder" required name="photoURL" type="url" id="photoURL">
           </div>
+        </div>
 
+        <div class="row">
+          <div class="flex-column column-full">
+            <label for="notes">
+              <h3>Notes</h3>
+            </label>
+            <textarea class="placeholder" required name="notes" rows="4" type="text" id="notes"></textarea>
+            <div class="button-container">
+              <button type="submit" id="submit">SAVE</button>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- ENTRIES  -->
+    <!-- ENTRIES -->
+    <div data-view="entries">
+
+      <div class="row-entries">
+        <h2 class="heading">Entries</h2>
+        <button class="button-new">New</button>
+      </div>
+      <ul class="no-bullets">
+        <li>
+          <!-- first pokemon  -->
           <div class="row">
             <div class="column-half flex-column">
-              <div><br></div>
+              <div class="imagePlaceHolder">
+                <img src="https://upload.wikimedia.org/wikipedia/en/9/92/Pok%C3%A9mon_episode_1_screenshot.png" alt="blank"
+                  id="img">
+              </div>
             </div>
-          </div>
-      </li>
 
-      <li>
-        <!-- second pokemon  -->
-        <div class="row">
-          <div class="column-half flex-column">
-            <div class="imagePlaceHolder">
-              <img
+            <div class="column-half flex-column">
+              <h3>Pikachu</h3>
+              <p>Pikachu (ピカチュウ, Pikachuu) is an Electric-type Pokémon which was introduced in Generation I. Pikachu is
+                renowned
+                for
+                being the most well-known and recognizable Pokémon.
+                <br>
+                <br>
+                Over the years, Pikachu has become so popular that it serves as the
+                Pokémon franchise mascot.
+              </p>
+            </div>
+
+            <div class="row">
+              <div class="column-half flex-column">
+                <div><br></div>
+              </div>
+            </div>
+        </li>
+
+        <li>
+          <!-- second pokemon  -->
+          <div class="row">
+            <div class="column-half flex-column">
+              <div class="imagePlaceHolder">
+                <img
                   src="https://static.wikia.nocookie.net/pokemon/images/3/39/Leon_Charizard_anime.png/revision/latest?cb=20200706005516"
                   alt="blank" id="img">
+              </div>
             </div>
-          </div>
 
-          <div class="column-half flex-column">
-            <h3>Charizard</h3>
-            <p>Charizard is featured in the Pokémon anime series with the most recurring being from the main character Ash
+            <div class="column-half flex-column">
+              <h3>Charizard</h3>
+              <p>Charizard is featured in the Pokémon anime series with the most recurring being from the main character Ash
                 Ketchum. It
                 is featured in printed adaptations such as Pokémon Adventures, in the possession of Blue, one of the main
                 characters.
                 Charizard appears in
-              <br>
-              <br> Pokémon Origins with main character Red as its trainer. In this series, Charizard is iconic,
+                <br>
+                <br> Pokémon Origins with main character Red as its trainer. In this series, Charizard is iconic,
                 because it was the first Pokémon to Mega Evolve into Mega Charizard X and it helped beat Mewtwo.
-            </p>
-          </div>
-      </li>
-    </ul>
+              </p>
+            </div>
+        </li>
+      </ul>
 
 
+    </div>
   </div>
+
+
 
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
