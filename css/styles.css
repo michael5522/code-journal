@@ -71,3 +71,28 @@ button {
     max-width: 900px;
   }
 }
+
+.row-entries {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-new {
+  display: flex;
+  justify-content: center;
+  width: 70px;
+  height: 30px;
+  padding: 5px;
+  font-size: 1rem;
+  border: none;
+  color: white;
+  background-color: #562b81;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+ul.no-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
