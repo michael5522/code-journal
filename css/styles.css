@@ -8,8 +8,10 @@ header {
 }
 
 .header-container {
+  display: flex;
   max-width: 575px;
   margin: 0 auto;
+  background-color: #562b81;
 }
 
 h1 {
@@ -17,8 +19,21 @@ h1 {
   padding-bottom: 15px;
   padding-left: 25px;
   margin-top: 0;
+  margin-bottom: 0;
   font-weight: normal;
   font-size: 2rem;
+  color: #fff;
+  background-color: #562b81;
+}
+
+.entries-header {
+  padding-top: 20px;
+  padding-bottom: 15px;
+  padding-left: 25px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: normal;
+  font-size: 1.5rem;
   color: #fff;
   background-color: #562b81;
 }
