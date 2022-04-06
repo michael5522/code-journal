@@ -116,3 +116,7 @@ ul.no-bullets {
 .margin-for-entry {
   margin-bottom: 2rem;
 }
+
+.hidden {
+  display: none;
+}
