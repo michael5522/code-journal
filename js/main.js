@@ -59,3 +59,36 @@ window.addEventListener('DOMContentLoaded', function () {
     entryRender.appendChild(returnValue);
   }
 });
+
+var tabContainer = document.querySelector('.header-container');
+console.log(tabContainer);
+
+var tabAll = document.querySelectorAll('.tab');
+console.log(tabAll);
+
+var viewAll = document.querySelectorAll('.view');
+console.log(viewAll);
+console.log('---------');
+tabContainer.addEventListener('click', function (event) {
+  console.log('u click this', event.target);
+  console.log('0000000000');
+  if (event.target.matches('.tab')) {
+    console.log('you clicked on a tab');
+    console.log(event.target);
+
+    for (var i = 0; i < tabAll.length; i++) {
+      if (tabAll[i] !== event.target) {
+        viewAll[i].classList.add('hidden');
+      } else {
+        viewAll[i].classList.remove('hidden');
+      }
+    }
+  }
+});
+
+var buttonQuery = document.querySelector('.button-new');
+console.log(buttonQuery);
+buttonQuery.addEventListener('click', function () {
+  viewAll[0].classList.remove('hidden');
+  viewAll[1].classList.add('hidden');
+});

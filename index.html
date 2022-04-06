@@ -17,16 +17,17 @@
 <body>
   <header>
     <div class="header-container">
-      <h1>Code Journal</h1>
+      <h1 class="tab">Code Journal</h1>
       <div class="entries-header">
-        <a class="entries-header" href="">Entries</a>
+        <a class="tab entries-header">Entries</a>
       </div>
     </div>
   </header>
 
 
   <div class="container">
-    <div class=" " data-view="entry-form">
+    <!-- FORM -->
+    <div class="view hidden" data-view="entry-form">
       <form id="form">
 
         <div class="row">
@@ -68,7 +69,7 @@
     </div>
 
     <!-- ENTRIES -->
-    <div class=" " data-view="entries">
+    <div class="view" data-view="entries">
 
       <div class="row-entries">
         <h2 class="heading">Entries</h2>
