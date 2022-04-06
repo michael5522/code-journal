@@ -26,16 +26,23 @@ function handleURLInput(event) {
 }
 
 console.log('hi');
-var entry = {
-  imageUrl: 'https://upload.wikimedia.org/wikipedia/en/9/92/Pok%C3%A9mon_episode_1_screenshot.png',
-  title: 'pp man',
-  info: 'wa da fa'
-};
+// var entry = [
+//   {
+//     photoURL: 'https://upload.wikimedia.org/wikipedia/en/9/92/Pok%C3%A9mon_episode_1_screenshot.png',
+//     name: 'pp man',
+//     notes: 'wa da fa'
+//   },
+//   {
+//     photoURL: 'https://upload.wikimedia.org/wikipedia/en/9/92/Pok%C3%A9mon_episode_1_screenshot.png',
+//     name: 'pp man',
+//     notes: 'wa da fa'
+//   }
+// ];
 // starting to create the dom creation gere
 function createEntry(entry) {
   var list = document.createElement('li');
   var row = document.createElement('div');
-  row.setAttribute('class', 'row');
+  row.setAttribute('class', 'row margin-for-entry');
   list.appendChild(row);
   var columnRow = document.createElement('div');
   columnRow.setAttribute('class', 'column-half flex-column');
@@ -44,21 +51,24 @@ function createEntry(entry) {
   imagePlaceholder.setAttribute('class', 'imagePlaceHolder');
   columnRow.appendChild(imagePlaceholder);
   var image = document.createElement('img');
-  image.setAttribute('src', entry.imageUrl);
+  image.setAttribute('src', entry.photoURL);
   imagePlaceholder.appendChild(image);
 
   var row2 = document.createElement('div');
   row2.setAttribute('class', 'column-half flex-column');
   row.appendChild(row2);
   var title = document.createElement('h3');
-  title.textContent = entry.title;
+  title.textContent = entry.name;
   row2.appendChild(title);
   var info = document.createElement('p');
-  info.textContent = entry.info;
+  info.textContent = entry.notes;
   row2.appendChild(info);
   return list;
 }
 
+console.log(data.entries.length);
 var entryRender = document.querySelector('.no-bullets');
-var returnValue = createEntry(entry);
-entryRender.appendChild(returnValue);
+for (var i = 0; i < data.entries.length; i++) {
+  var returnValue = createEntry(data.entries[i]);
+  entryRender.appendChild(returnValue);
+}

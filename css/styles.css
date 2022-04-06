@@ -111,3 +111,7 @@ ul.no-bullets {
   margin: 0;
   padding: 0;
 }
+
+.margin-for-entry {
+  margin-bottom: 2rem;
+}
