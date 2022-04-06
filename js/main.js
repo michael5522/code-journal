@@ -25,20 +25,6 @@ function handleURLInput(event) {
   imgTagLocation.setAttribute('src', event.target.value);
 }
 
-console.log('hi');
-// var entry = [
-//   {
-//     photoURL: 'https://upload.wikimedia.org/wikipedia/en/9/92/Pok%C3%A9mon_episode_1_screenshot.png',
-//     name: 'pp man',
-//     notes: 'wa da fa'
-//   },
-//   {
-//     photoURL: 'https://upload.wikimedia.org/wikipedia/en/9/92/Pok%C3%A9mon_episode_1_screenshot.png',
-//     name: 'pp man',
-//     notes: 'wa da fa'
-//   }
-// ];
-// starting to create the dom creation gere
 function createEntry(entry) {
   var list = document.createElement('li');
   var row = document.createElement('div');
@@ -66,9 +52,10 @@ function createEntry(entry) {
   return list;
 }
 
-console.log(data.entries.length);
 var entryRender = document.querySelector('.no-bullets');
-for (var i = 0; i < data.entries.length; i++) {
-  var returnValue = createEntry(data.entries[i]);
-  entryRender.appendChild(returnValue);
-}
+window.addEventListener('DOMContentLoaded', function () {
+  for (var i = 0; i < data.entries.length; i++) {
+    var returnValue = createEntry(data.entries[i]);
+    entryRender.appendChild(returnValue);
+  }
+});
