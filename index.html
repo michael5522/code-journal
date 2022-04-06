@@ -17,56 +17,73 @@
 <body>
   <header>
     <div class="header-container">
-      <h1>Code Journal</h1>
+      <h1 class="tab">Code Journal</h1>
+      <div class="entries-header">
+        <a class="tab entries-header" id="entry">Entries</a>
+      </div>
     </div>
   </header>
 
 
-  <div class="container" data-view="entry-form">
-    <form id="form">
+  <div class="container">
+    <!-- FORM -->
+    <div class="view hidden" data-view="entry-form">
+      <form id="form">
 
-      <div class="row">
-        <h2 class="heading">New Entry</h2>
-      </div>
+        <div class="row">
+          <h2 class="heading">New Entry</h2>
+        </div>
 
-      <div class="row">
+        <div class="row">
+          <div class="column-half flex-column">
+            <div class="imagePlaceHolder">
+              <img src="images/placeholder-image-square.jpg" alt="blank" id="img">
+            </div>
+          </div>
 
-        <div class="column-half flex-column">
-          <div class="imagePlaceHolder">
-            <img src="images/placeholder-image-square.jpg" alt="blank" id="img">
+          <div class="column-half flex-column">
+            <label for="title">
+              <h3>Title</h3>
+            </label>
+            <input class="placeholder" required name="title" type="text" id="title">
+            <label for="photoURL">
+              <h3>Photo URL</h3>
+            </label>
+            <input class="placeholder" required name="photoURL" type="url" id="photoURL">
           </div>
         </div>
 
-        <div class="column-half flex-column">
-          <label for="title">
-            <h3>Title</h3>
-          </label>
-          <input class="placeholder" required name="title" type="text" id="title">
-          <label for="photoURL">
-            <h3>Photo URL</h3>
-          </label>
-          <input class="placeholder" required name="photoURL" type="url" id="photoURL">
-        </div>
-
-      </div>
-
-      <div class="row">
-        <div class="flex-column column-full">
-          <label for="notes">
-            <h3>Notes</h3>
-          </label>
-          <textarea class="placeholder" required name="notes" rows="4" type="text" id="notes"></textarea>
-          <div class="button-container">
-            <button type="submit" id="submit">SAVE</button>
+        <div class="row">
+          <div class="flex-column column-full">
+            <label for="notes">
+              <h3>Notes</h3>
+            </label>
+            <textarea class="placeholder" required name="notes" rows="4" type="text" id="notes"></textarea>
+            <div class="button-container">
+              <button type="submit" id="submit">SAVE</button>
+            </div>
           </div>
-
-
         </div>
-      </div>
 
-    </form>
+      </form>
+    </div>
+
+    <!-- ENTRIES -->
+    <div class="view" data-view="entries">
+
+      <div class="row-entries">
+        <h2 class="heading">Entries</h2>
+        <button class="button-new">New</button>
+      </div>
+      <ul class="no-bullets">
+
+      </ul>
+
+
+    </div>
   </div>
-  </div>
+
+
 
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
