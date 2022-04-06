@@ -70,40 +70,27 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 var tabContainer = document.querySelector('.header-container');
-console.log(tabContainer);
 
 var tabAll = document.querySelectorAll('.tab');
-console.log(tabAll);
 
 var viewAll = document.querySelectorAll('.view');
-console.log(viewAll);
-console.log('---------');
 tabContainer.addEventListener('click', function (event) {
-  console.log('u click this', event.target);
-  console.log('0000000000');
   if (event.target.matches('#entry')) {
-    // console.log('you clicked on a tab');
-    // console.log(event.target);
 
     for (var i = 0; i < tabAll.length; i++) {
       if (tabAll[i] !== event.target) {
         viewAll[i].classList.add('hidden');
-        // console.log('added hidden', viewAll[i]);
       } else {
         viewAll[i].classList.remove('hidden');
-        // console.log('remove hidden', viewAll[i]);
         data.view = 'entries';
-        // console.log(data);
       }
     }
   }
 });
 
 var buttonQuery = document.querySelector('.button-new');
-console.log(buttonQuery);
 buttonQuery.addEventListener('click', function () {
   data.view = 'entry-form';
-  // console.log('data', data);
   viewAll[0].classList.remove('hidden');
   viewAll[1].classList.add('hidden');
 });
