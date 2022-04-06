@@ -17,6 +17,11 @@ function handleSubmit(event) {
   data.nextEntryId++;
   data.entries.unshift(obj);
   formLocation.reset();
+  var firstOne = createEntry(obj);
+  console.log(firstOne);
+  entryRender.prepend(firstOne);
+  viewAll[0].classList.add('hidden');
+  viewAll[1].classList.remove('hidden');
 }
 
 var photoURLLocation = document.querySelector('#photoURL');
@@ -72,7 +77,7 @@ console.log('---------');
 tabContainer.addEventListener('click', function (event) {
   console.log('u click this', event.target);
   console.log('0000000000');
-  if (event.target.matches('.tab')) {
+  if (event.target.matches('#entry')) {
     console.log('you clicked on a tab');
     console.log(event.target);
 
