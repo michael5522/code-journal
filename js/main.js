@@ -48,9 +48,15 @@ function createEntry(entry) {
   var row2 = document.createElement('div');
   row2.setAttribute('class', 'column-half flex-column');
   row.appendChild(row2);
+  var titleRow = document.createElement('div');
+  titleRow.setAttribute('class', 'row-entries');
+  row2.appendChild(titleRow);
   var title = document.createElement('h3');
   title.textContent = entry.name;
-  row2.appendChild(title);
+  titleRow.appendChild(title);
+  var edit = document.createElement('div');
+  edit.setAttribute('class', 'edit-button fa-solid fa-pen');
+  titleRow.appendChild(edit);
   var info = document.createElement('p');
   info.textContent = entry.notes;
   row2.appendChild(info);

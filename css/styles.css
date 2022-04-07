@@ -69,6 +69,19 @@ button {
   margin-top: 20px;
 }
 
+.edit-button {
+  display: flex;
+  justify-content: center;
+  width: 15%;
+  padding: 0.5rem 1rem;
+  font-size: 1.35rem;
+  border: none;
+  color: #562b81;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  margin-top: 10px;
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
