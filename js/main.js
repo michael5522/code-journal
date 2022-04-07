@@ -100,3 +100,5 @@ buttonQuery.addEventListener('click', function () {
   viewAll[0].classList.remove('hidden');
   viewAll[1].classList.add('hidden');
 });
+
+console.log('parent of all rendered entries', entryRender);
