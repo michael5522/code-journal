@@ -73,13 +73,22 @@ window.addEventListener('DOMContentLoaded', function () {
     viewAll[0].classList.remove('hidden');
     viewAll[1].classList.add('hidden');
   }
+  // searching for edit buttons
+  var editButton = document.querySelectorAll('.edit-button');
+  console.log('editbutton', editButton);
+  editButton[0].addEventListener('click', function () {
+    data.view = 'entry-form';
+    viewAll[0].classList.remove('hidden');
+    viewAll[1].classList.add('hidden');
+  });
 });
 
 var tabContainer = document.querySelector('.header-container');
 
 var tabAll = document.querySelectorAll('.tab');
-
+// console.log(tabAll);
 var viewAll = document.querySelectorAll('.view');
+// console.log('viewAll', viewAll);
 tabContainer.addEventListener('click', function (event) {
   if (event.target.matches('#entry')) {
 
