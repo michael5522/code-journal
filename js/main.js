@@ -54,15 +54,18 @@ function createEntry(entry) {
   var title = document.createElement('h3');
   title.textContent = entry.name;
   titleRow.appendChild(title);
-  var edit = document.createElement('div');
+  var edit = document.createElement('i');
   edit.setAttribute('class', 'edit-button fa-solid fa-pen');
+  edit.setAttribute('customNumber', entry.id);
   titleRow.appendChild(edit);
   var info = document.createElement('p');
   info.textContent = entry.notes;
   row2.appendChild(info);
   return list;
 }
-
+// DOMCONTENTLOADED
+//
+//
 var entryRender = document.querySelector('.no-bullets');
 window.addEventListener('DOMContentLoaded', function () {
   for (var i = 0; i < data.entries.length; i++) {
@@ -74,13 +77,37 @@ window.addEventListener('DOMContentLoaded', function () {
     viewAll[1].classList.add('hidden');
   }
   // searching for edit buttons
-  var editButton = document.querySelectorAll('.edit-button');
-  console.log('editbutton', editButton);
-  editButton[0].addEventListener('click', function () {
-    data.view = 'entry-form';
-    viewAll[0].classList.remove('hidden');
-    viewAll[1].classList.add('hidden');
+
+  var editButton = document.querySelector('.no-bullets');
+  console.log('edit button', editButton);
+  editButton.addEventListener('click', function (event) {
+    console.log('the event target', event.target);
+    if (event.target.matches('.edit-button')) {
+      var customNumberPulled = event.target.getAttribute('customNumber');
+      console.log(customNumberPulled);
+    }
   });
+  // var editButton = document.querySelectorAll('.edit-button');
+  // console.log(editButton);
+  // for (var a = 0; a < editButton.length; a++) {
+
+  // }
+  // console.log('editbutton', editButton[a].getAttribute('customNumber'));
+  // editButton[a].addEventListener('click', function () {
+  //   data.view = 'entry-form';
+  //   viewAll[0].classList.remove('hidden');
+  //   viewAll[1].classList.add('hidden');
+  // });
+
+  // for (var a = 0; a < editButton.length; a++) {
+  //   console.log(editButton[a].getAttribute('customNumber'));
+  //   editButton[a].addEventListener('click', function () {
+  //     console.log('hi', editButton[a]);
+  //     data.view = 'entry-form';
+  //     viewAll[0].classList.remove('hidden');
+  //     viewAll[1].classList.add('hidden');
+  //   });
+  // }
 });
 
 var tabContainer = document.querySelector('.header-container');
@@ -109,5 +136,3 @@ buttonQuery.addEventListener('click', function () {
   viewAll[0].classList.remove('hidden');
   viewAll[1].classList.add('hidden');
 });
-
-console.log('parent of all rendered entries', entryRender);
