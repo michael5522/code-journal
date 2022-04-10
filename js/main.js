@@ -83,8 +83,31 @@ window.addEventListener('DOMContentLoaded', function () {
   editButton.addEventListener('click', function (event) {
     console.log('the event target', event.target);
     if (event.target.matches('.edit-button')) {
-      var customNumberPulled = event.target.getAttribute('customNumber');
-      console.log(customNumberPulled);
+      viewAll[0].classList.remove('hidden');
+      viewAll[1].classList.add('hidden');
+      var customNumberPulled = parseInt(event.target.getAttribute('customNumber'));
+      console.log('custom number pulled', customNumberPulled);
+      console.log('-------');
+      for (var b = 0; b < data.entries.length; b++) {
+        // console.log('data entry id', data.entries[b].id);
+        if (customNumberPulled === data.entries[b].id) {
+          console.log('konbanwa', data.entries[b].id);
+          var formHeader = document.querySelector('.heading');
+          formHeader.textContent = 'Edit Entry';
+          var formTitle = document.querySelector('#title');
+          formTitle.setAttribute('value', data.entries[b].name);
+          console.log(formTitle);
+          var formPhotoURL = document.querySelector('#photoURL');
+          console.log(formPhotoURL);
+          formPhotoURL.setAttribute('value', data.entries[b].photoURL);
+          var formImg = document.querySelector('#img');
+          formImg.setAttribute('src', data.entries[b].photoURL);
+          console.log(formImg);
+          var formNotes = document.querySelector('#notes');
+          formNotes.textContent = data.entries[b].notes;
+          console.log(formNotes);
+        }
+      }
     }
   });
   // var editButton = document.querySelectorAll('.edit-button');
