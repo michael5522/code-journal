@@ -4,24 +4,70 @@
 
 var imgTagLocation = document.querySelector('#img');
 var formLocation = document.querySelector('#form');
-
 formLocation.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
   event.preventDefault();
-  var obj = {
-    name: formLocation.elements.title.value,
-    photoURL: formLocation.elements.photoURL.value,
-    notes: formLocation.elements.notes.value,
-    id: data.nextEntryId
-  };
-  data.nextEntryId++;
-  data.entries.unshift(obj);
-  formLocation.reset();
-  var firstOne = createEntry(obj);
-  console.log(firstOne);
-  entryRender.prepend(firstOne);
-  viewAll[0].classList.add('hidden');
-  viewAll[1].classList.remove('hidden');
+
+  if (customNumberPulled) {
+    console.log('custom number', customNumberPulled);
+    console.log('ola');
+    console.log(data.entries);
+    console.log(data.entries.length);
+    for (var a = 0; a < data.entries.length; a++) {
+      console.log(data.entries[a].id);
+      if (customNumberPulled === data.entries[a].id) {
+        // 1;
+        console.log('data.entries[a].name', data.entries[a].name);
+        data.entries[a].name = formLocation.elements.title.value;
+        console.log('new name', formLocation.elements.title.value);
+        // 2
+        console.log('data.entries[a].photoURL', data.entries[a].photoURL);
+        data.entries[a].photoURL = formLocation.elements.photoURL.value;
+        console.log('new photourl', formLocation.elements.photoURL.value);
+        // 3
+        console.log('data.entries[a].notes', data.entries[a].notes.value);
+        data.entries[a].notes = formLocation.elements.notes.value;
+        console.log('data notes', formLocation.elements.notes.value);
+        console.log('data.entries[a] after', data.entries[a]);
+      }
+    }
+    var viewAllDataEntry = document.querySelectorAll('li');
+    console.log('dasfdf', viewAllDataEntry);
+    for (var z = 0; z < viewAllDataEntry.length; z++) {
+      // console.log(typeof parseInt(viewAllDataEntry[z].getAttribute('data-entry')));
+      if (customNumberPulled === parseInt(viewAllDataEntry[z].getAttribute('data-entry'))) {
+        console.log('this one pulled', viewAllDataEntry[z]);
+        var obj2 = {
+          name: formLocation.elements.title.value,
+          photoURL: formLocation.elements.photoURL.value,
+          notes: formLocation.elements.notes.value,
+          id: customNumberPulled
+        };
+        console.log(obj2);
+        var editedObj = createEntry(obj2);
+        console.log(editedObj);
+        viewAllDataEntry[z].replaceWith(editedObj);
+        viewAll[0].classList.add('hidden');
+        viewAll[1].classList.remove('hidden');
+      }
+    }
+
+  } else {
+    var obj = {
+      name: formLocation.elements.title.value,
+      photoURL: formLocation.elements.photoURL.value,
+      notes: formLocation.elements.notes.value,
+      id: data.nextEntryId
+    };
+    data.nextEntryId++;
+    data.entries.unshift(obj);
+    formLocation.reset();
+    var firstOne = createEntry(obj);
+    console.log(firstOne);
+    entryRender.prepend(firstOne);
+    viewAll[0].classList.add('hidden');
+    viewAll[1].classList.remove('hidden');
+  }
 }
 
 var photoURLLocation = document.querySelector('#photoURL');
@@ -32,6 +78,7 @@ function handleURLInput(event) {
 
 function createEntry(entry) {
   var list = document.createElement('li');
+  list.setAttribute('data-entry', entry.id);
   var row = document.createElement('div');
   row.setAttribute('class', 'row margin-for-entry');
   list.appendChild(row);
@@ -66,6 +113,7 @@ function createEntry(entry) {
 // DOMCONTENTLOADED
 //
 //
+var customNumberPulled = null;
 var entryRender = document.querySelector('.no-bullets');
 window.addEventListener('DOMContentLoaded', function () {
   for (var i = 0; i < data.entries.length; i++) {
@@ -77,7 +125,6 @@ window.addEventListener('DOMContentLoaded', function () {
     viewAll[1].classList.add('hidden');
   }
   // searching for edit buttons
-
   var editButton = document.querySelector('.no-bullets');
   console.log('edit button', editButton);
   editButton.addEventListener('click', function (event) {
@@ -85,7 +132,7 @@ window.addEventListener('DOMContentLoaded', function () {
     if (event.target.matches('.edit-button')) {
       viewAll[0].classList.remove('hidden');
       viewAll[1].classList.add('hidden');
-      var customNumberPulled = parseInt(event.target.getAttribute('customNumber'));
+      customNumberPulled = parseInt(event.target.getAttribute('customNumber'));
       console.log('custom number pulled', customNumberPulled);
       console.log('-------');
       for (var b = 0; b < data.entries.length; b++) {
@@ -110,27 +157,6 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     }
   });
-  // var editButton = document.querySelectorAll('.edit-button');
-  // console.log(editButton);
-  // for (var a = 0; a < editButton.length; a++) {
-
-  // }
-  // console.log('editbutton', editButton[a].getAttribute('customNumber'));
-  // editButton[a].addEventListener('click', function () {
-  //   data.view = 'entry-form';
-  //   viewAll[0].classList.remove('hidden');
-  //   viewAll[1].classList.add('hidden');
-  // });
-
-  // for (var a = 0; a < editButton.length; a++) {
-  //   console.log(editButton[a].getAttribute('customNumber'));
-  //   editButton[a].addEventListener('click', function () {
-  //     console.log('hi', editButton[a]);
-  //     data.view = 'entry-form';
-  //     viewAll[0].classList.remove('hidden');
-  //     viewAll[1].classList.add('hidden');
-  //   });
-  // }
 });
 
 var tabContainer = document.querySelector('.header-container');
