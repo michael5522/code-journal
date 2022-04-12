@@ -9,43 +9,23 @@ function handleSubmit(event) {
   event.preventDefault();
 
   if (customNumberPulled) {
-    console.log('custom number', customNumberPulled);
-    console.log('ola');
-    console.log(data.entries);
-    console.log(data.entries.length);
     for (var a = 0; a < data.entries.length; a++) {
-      console.log(data.entries[a].id);
       if (customNumberPulled === data.entries[a].id) {
-        // 1;
-        console.log('data.entries[a].name', data.entries[a].name);
         data.entries[a].name = formLocation.elements.title.value;
-        console.log('new name', formLocation.elements.title.value);
-        // 2
-        console.log('data.entries[a].photoURL', data.entries[a].photoURL);
         data.entries[a].photoURL = formLocation.elements.photoURL.value;
-        console.log('new photourl', formLocation.elements.photoURL.value);
-        // 3
-        console.log('data.entries[a].notes', data.entries[a].notes.value);
         data.entries[a].notes = formLocation.elements.notes.value;
-        console.log('data notes', formLocation.elements.notes.value);
-        console.log('data.entries[a] after', data.entries[a]);
       }
     }
     var viewAllDataEntry = document.querySelectorAll('li');
-    console.log('dasfdf', viewAllDataEntry);
     for (var z = 0; z < viewAllDataEntry.length; z++) {
-      // console.log(typeof parseInt(viewAllDataEntry[z].getAttribute('data-entry')));
       if (customNumberPulled === parseInt(viewAllDataEntry[z].getAttribute('data-entry'))) {
-        console.log('this one pulled', viewAllDataEntry[z]);
         var obj2 = {
           name: formLocation.elements.title.value,
           photoURL: formLocation.elements.photoURL.value,
           notes: formLocation.elements.notes.value,
           id: customNumberPulled
         };
-        console.log(obj2);
         var editedObj = createEntry(obj2);
-        console.log(editedObj);
         viewAllDataEntry[z].replaceWith(editedObj);
         viewAll[0].classList.add('hidden');
         viewAll[1].classList.remove('hidden');
@@ -63,7 +43,6 @@ function handleSubmit(event) {
     data.entries.unshift(obj);
     formLocation.reset();
     var firstOne = createEntry(obj);
-    console.log(firstOne);
     entryRender.prepend(firstOne);
     viewAll[0].classList.add('hidden');
     viewAll[1].classList.remove('hidden');
@@ -111,8 +90,6 @@ function createEntry(entry) {
   return list;
 }
 // DOMCONTENTLOADED
-//
-//
 var customNumberPulled = null;
 var entryRender = document.querySelector('.no-bullets');
 window.addEventListener('DOMContentLoaded', function () {
@@ -126,33 +103,26 @@ window.addEventListener('DOMContentLoaded', function () {
   }
   // searching for edit buttons
   var editButton = document.querySelector('.no-bullets');
-  console.log('edit button', editButton);
   editButton.addEventListener('click', function (event) {
-    console.log('the event target', event.target);
+
     if (event.target.matches('.edit-button')) {
       viewAll[0].classList.remove('hidden');
       viewAll[1].classList.add('hidden');
       customNumberPulled = parseInt(event.target.getAttribute('customNumber'));
-      console.log('custom number pulled', customNumberPulled);
-      console.log('-------');
+
       for (var b = 0; b < data.entries.length; b++) {
-        // console.log('data entry id', data.entries[b].id);
+
         if (customNumberPulled === data.entries[b].id) {
-          console.log('konbanwa', data.entries[b].id);
           var formHeader = document.querySelector('.heading');
           formHeader.textContent = 'Edit Entry';
           var formTitle = document.querySelector('#title');
           formTitle.setAttribute('value', data.entries[b].name);
-          console.log(formTitle);
           var formPhotoURL = document.querySelector('#photoURL');
-          console.log(formPhotoURL);
           formPhotoURL.setAttribute('value', data.entries[b].photoURL);
           var formImg = document.querySelector('#img');
           formImg.setAttribute('src', data.entries[b].photoURL);
-          console.log(formImg);
           var formNotes = document.querySelector('#notes');
           formNotes.textContent = data.entries[b].notes;
-          console.log(formNotes);
         }
       }
     }
@@ -162,9 +132,7 @@ window.addEventListener('DOMContentLoaded', function () {
 var tabContainer = document.querySelector('.header-container');
 
 var tabAll = document.querySelectorAll('.tab');
-// console.log(tabAll);
 var viewAll = document.querySelectorAll('.view');
-// console.log('viewAll', viewAll);
 tabContainer.addEventListener('click', function (event) {
   if (event.target.matches('#entry')) {
 
