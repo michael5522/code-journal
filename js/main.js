@@ -109,7 +109,7 @@ window.addEventListener('DOMContentLoaded', function () {
       viewAll[0].classList.remove('hidden');
       viewAll[1].classList.add('hidden');
       customNumberPulled = parseInt(event.target.getAttribute('customNumber'));
-
+      document.getElementById('delete').textContent = 'Delete Entry';
       for (var b = 0; b < data.entries.length; b++) {
 
         if (customNumberPulled === data.entries[b].id) {

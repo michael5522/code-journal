@@ -133,3 +133,28 @@ ul.no-bullets {
 .hidden {
   display: none;
 }
+
+.button-save {
+  display: flex;
+  justify-content: center;
+  width: 70px;
+  height: 30px;
+  padding: 5px;
+  font-size: 1rem;
+  border: none;
+  color: white;
+  background-color: #562b81;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+#delete {
+  text-decoration: underline;
+  color: red;
+  font-weight: normal;
+}
+
+.row-entries-delete {
+  display: flex;
+  justify-content: space-between;
+}
