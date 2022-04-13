@@ -153,3 +153,13 @@ buttonQuery.addEventListener('click', function () {
   viewAll[0].classList.remove('hidden');
   viewAll[1].classList.add('hidden');
 });
+
+var deleteEntryQuery = document.querySelector('#delete');
+deleteEntryQuery.addEventListener('click', function () {
+  console.log('custom numner pulled', customNumberPulled);
+  console.log(deleteEntryQuery);
+  var switchStatus = document.querySelector('#change');
+  console.log(switchStatus);
+  switchStatus.className = 'modal-open';
+});
+console.log(deleteEntryQuery);
