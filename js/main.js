@@ -174,6 +174,10 @@ deleteEntryQuery.addEventListener('click', function (event) {
   });
   var buttonConfirm = document.querySelector('.button-confirm');
   console.log(buttonConfirm);
+  buttonConfirm.addEventListener('click', function () {
+    console.log('customnumber pulled', customNumberPulled);
+    console.log(data.entries[customNumberPulled]);
+  });
   // viewAll[0].classList.remove('hidden');
   // viewAll[1].classList.add('hidden');
 });
