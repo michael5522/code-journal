@@ -129,7 +129,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-
+// move this to the front
 var tabContainer = document.querySelector('.header-container');
 console.log('tabcontaner', tabContainer);
 var tabAll = document.querySelectorAll('.tab');
@@ -176,9 +176,32 @@ deleteEntryQuery.addEventListener('click', function (event) {
   console.log(buttonConfirm);
   buttonConfirm.addEventListener('click', function () {
     console.log('customnumber pulled', customNumberPulled);
-    console.log(data.entries[customNumberPulled]);
+    // console.log(data.entries[customNumberPulled]);
+    for (var g = 0; g < data.entries.length; g++) {
+      // console.log(data.entries[g]);
+      if (data.entries[g].id === customNumberPulled) {
+        console.log(data.entries[g]);
+        console.log('delete this', data.entries.indexOf(data.entries[g]));
+        var deleteThis = data.entries.indexOf(data.entries[g]);
+        console.log(deleteThis);
+        data.entries.splice(deleteThis, 1);
+        console.log('reached the end');
+        switchStatus.className = 'modal-close';
+        var viewAllDataEntry = document.querySelectorAll('li');
+        console.log(viewAllDataEntry);
+
+        for (var h = 0; h < viewAllDataEntry.length; h++) {
+          var matchingNumber = parseInt(viewAllDataEntry[h].getAttribute('data-entry'));
+          if (matchingNumber === customNumberPulled) {
+            console.log('found the one needed to be deleted', viewAllDataEntry[h]);
+            viewAllDataEntry[h].remove();
+          }
+        }
+
+        viewAll[0].classList.add('hidden');
+        viewAll[1].classList.remove('hidden');
+      }
+    }
   });
-  // viewAll[0].classList.remove('hidden');
-  // viewAll[1].classList.add('hidden');
 });
 console.log('here', deleteEntryQuery);
