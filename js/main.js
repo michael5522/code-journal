@@ -7,7 +7,7 @@ var formLocation = document.querySelector('#form');
 formLocation.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
   event.preventDefault();
-
+  console.log('wdsfafd');
   if (customNumberPulled) {
     for (var a = 0; a < data.entries.length; a++) {
       if (customNumberPulled === data.entries[a].id) {
@@ -98,6 +98,7 @@ window.addEventListener('DOMContentLoaded', function () {
     entryRender.appendChild(returnValue);
   }
   if (data.view !== 'entries') {
+    console.log('this is triggering');
     viewAll[0].classList.remove('hidden');
     viewAll[1].classList.add('hidden');
   }
@@ -130,12 +131,14 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 var tabContainer = document.querySelector('.header-container');
-
+console.log('tabcontaner', tabContainer);
 var tabAll = document.querySelectorAll('.tab');
+console.log('taball', tabAll);
 var viewAll = document.querySelectorAll('.view');
+console.log('viewall', viewAll);
 tabContainer.addEventListener('click', function (event) {
   if (event.target.matches('#entry')) {
-
+    console.log('this is triggering');
     for (var i = 0; i < tabAll.length; i++) {
       if (tabAll[i] !== event.target) {
         viewAll[i].classList.add('hidden');
@@ -155,11 +158,23 @@ buttonQuery.addEventListener('click', function () {
 });
 
 var deleteEntryQuery = document.querySelector('#delete');
-deleteEntryQuery.addEventListener('click', function () {
+deleteEntryQuery.addEventListener('click', function (event) {
+  event.preventDefault();
   console.log('custom numner pulled', customNumberPulled);
   console.log(deleteEntryQuery);
   var switchStatus = document.querySelector('#change');
   console.log(switchStatus);
   switchStatus.className = 'modal-open';
+  console.log(switchStatus);
+  var buttonCancel = document.querySelector('.button-cancel');
+  console.log(buttonCancel);
+  buttonCancel.addEventListener('click', function () {
+    switchStatus.className = 'modal-close';
+    console.log('current class after should be closed', switchStatus);
+  });
+  var buttonConfirm = document.querySelector('.button-confirm');
+  console.log(buttonConfirm);
+  // viewAll[0].classList.remove('hidden');
+  // viewAll[1].classList.add('hidden');
 });
-console.log(deleteEntryQuery);
+console.log('here', deleteEntryQuery);
