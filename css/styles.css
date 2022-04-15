@@ -149,10 +149,14 @@ ul.no-bullets {
 }
 
 #delete {
+  padding-left: 0;
+  width: 110px;
   text-decoration: underline;
   color: red;
   font-weight: normal;
   background-color: #f0f0f0;
+
+  /* width: 132px; */
 }
 
 .row-entries-delete {
@@ -232,4 +236,10 @@ ul.no-bullets {
   cursor: pointer;
   border-radius: 0.25rem;
   margin-top: 20px;
+}
+
+.button-cancel:hover,
+.button-confirm:hover {
+  cursor: pointer;
+  color: pink;
 }
