@@ -59,8 +59,12 @@
               <h3>Notes</h3>
             </label>
             <textarea class="placeholder" required name="notes" rows="4" type="text" id="notes"></textarea>
-            <div class="button-container">
-              <button type="submit" id="submit">SAVE</button>
+            <div class="row-entries-delete">
+              <button id="delete">
+              </button>
+              <div class="button-container">
+                <button type="submit" id="submit" class="button-save">SAVE</button>
+              </div>
             </div>
           </div>
         </div>
@@ -83,7 +87,15 @@
     </div>
   </div>
 
-
+  <div id="change" class="modal-close">
+    <div class="modal-content">
+      <p class="pwhite">Are you sure you want to delete this entry?</p>
+      <div class="row-entries-white">
+        <button class="button-cancel">CANCEL</button>
+        <button class="button-confirm">CONFIRM</button>
+      </div>
+    </div>
+  </div>
 
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

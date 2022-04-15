@@ -7,7 +7,6 @@ var formLocation = document.querySelector('#form');
 formLocation.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
   event.preventDefault();
-
   if (customNumberPulled) {
     for (var a = 0; a < data.entries.length; a++) {
       if (customNumberPulled === data.entries[a].id) {
@@ -109,7 +108,7 @@ window.addEventListener('DOMContentLoaded', function () {
       viewAll[0].classList.remove('hidden');
       viewAll[1].classList.add('hidden');
       customNumberPulled = parseInt(event.target.getAttribute('customNumber'));
-
+      document.getElementById('delete').textContent = 'Delete Entry';
       for (var b = 0; b < data.entries.length; b++) {
 
         if (customNumberPulled === data.entries[b].id) {
@@ -128,11 +127,13 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-
+// move this to the front
 var tabContainer = document.querySelector('.header-container');
 
 var tabAll = document.querySelectorAll('.tab');
+
 var viewAll = document.querySelectorAll('.view');
+
 tabContainer.addEventListener('click', function (event) {
   if (event.target.matches('#entry')) {
 
@@ -152,4 +153,47 @@ buttonQuery.addEventListener('click', function () {
   data.view = 'entry-form';
   viewAll[0].classList.remove('hidden');
   viewAll[1].classList.add('hidden');
+});
+
+var deleteEntryQuery = document.querySelector('#delete');
+deleteEntryQuery.addEventListener('click', function (event) {
+  event.preventDefault();
+  var switchStatus = document.querySelector('#change');
+
+  switchStatus.className = 'modal-open';
+
+  var buttonCancel = document.querySelector('.button-cancel');
+
+  buttonCancel.addEventListener('click', function () {
+    switchStatus.className = 'modal-close';
+
+  });
+  var buttonConfirm = document.querySelector('.button-confirm');
+
+  buttonConfirm.addEventListener('click', function () {
+
+    for (var g = 0; g < data.entries.length; g++) {
+
+      if (data.entries[g].id === customNumberPulled) {
+
+        var deleteThis = data.entries.indexOf(data.entries[g]);
+
+        data.entries.splice(deleteThis, 1);
+
+        switchStatus.className = 'modal-close';
+        var viewAllDataEntry = document.querySelectorAll('li');
+
+        for (var h = 0; h < viewAllDataEntry.length; h++) {
+          var matchingNumber = parseInt(viewAllDataEntry[h].getAttribute('data-entry'));
+          if (matchingNumber === customNumberPulled) {
+
+            viewAllDataEntry[h].remove();
+          }
+        }
+
+        viewAll[0].classList.add('hidden');
+        viewAll[1].classList.remove('hidden');
+      }
+    }
+  });
 });
